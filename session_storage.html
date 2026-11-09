@@ -3,9 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>sesion storage</title>
 </head>
 <body>
-    
+    <h6>this is session storage</h6>
+    <button id="id_mybutton1" >Add</button>
+    <button id="id_mybutton2" >Show</button>
+    <button id="id_mybutton3" >delete key1 </button>
+    <button id="id_mybutton4" >Delete key 2</button>
+    <button id="id_mybutton5" >Clear</button>
+<p>this is value </p>
+<p id="id_mynas"></p>
+
+
+
+<script>
+//const button_add = document.getElementById("button_add");
+// bug 1   bas hattet function maa parameter on Line 48  ma mshiyit
+const co_addbutton = document.getElementById("id_mybutton1");
+const co_addbutton2 = document.getElementById("id_mybutton2");
+const co_addbutton3 = document.getElementById("id_mybutton3");
+const co_addbutton4 = document.getElementById("id_mybutton4");
+const co_addbutton5 = document.getElementById("id_mybutton5");
+let co_mynas =document.getElementById("id_mynas");
+
+
+function fu_function1(){
+
+sessionStorage.setItem("key_1","value_1");
+sessionStorage.setItem("key_2","value_2");
+
+
+
+const le_key1 = sessionStorage.getItem("key_1");
+const le_key2 = sessionStorage.getItem("key_2");
+
+console.log(le_key1);
+console.log(le_key2);
+
+}
+
+co_addbutton.addEventListener("click", fu_function1);
+
+
+function fu_function2(){
+const le_key1 = sessionStorage.getItem("key_1");
+const le_key2 = sessionStorage.getItem("key_2");
+co_mynas.textContent = `key_1: ${le_key1 ?? "not set"} | key_2: ${le_key2 ?? "not set"}`;
+
+console.log(le_key1);
+console.log(le_key2);
+}
+
+co_addbutton2.addEventListener("click", fu_function2);
+
+
+function fu_function3(){
+
+sessionStorage.clear();
+
+const le_key1 = sessionStorage.getItem("key_1");
+const le_key2 = sessionStorage.getItem("key_2");
+co_mynas.textContent = `key_1: ${le_key1 ?? "not set"} | key_2: ${le_key2 ?? "not set"}`;
+
+console.log(le_key1);
+console.log(le_key2);
+
+}
+
+co_addbutton5.addEventListener("click",fu_function3)
+
+
+const ar_delete1=() => {
+
+sessionStorage.setItem("key_1","");
+
+
+const le_key1 = sessionStorage.getItem("key_1");
+const le_key2 = sessionStorage.getItem("key_2");
+co_mynas.textContent = `key_1: ${le_key1 ?? "not set"} | key_2: ${le_key2 ?? "not set"}`;
+
+    console.log(le_key1);
+console.log(le_key2);
+}
+
+const ar_delete2=() => {
+
+sessionStorage.setItem("key_2","");
+
+
+const le_key1 = sessionStorage.getItem("key_1");
+const le_key2 = sessionStorage.getItem("key_2");
+co_mynas.textContent = `key_1: ${le_key1 ?? "not set"} | key_2: ${le_key2 ?? "not set"}`;
+
+    console.log(le_key1);
+console.log(le_key2);
+}
+
+co_addbutton3.addEventListener("click",ar_delete1);
+co_addbutton4.addEventListener("click",ar_delete2);
+
+
+
+</script>
+
 </body>
 </html>

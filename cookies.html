@@ -9,19 +9,83 @@
     <h6>this is cookies</h6>
     
 
+<button class="cl_addcookie">add 2 cookie</button>
+<button class="cl_getcookie1">get 1</button>
+<button class="cl_getcookie2"> get 2</button>
+<button class="cl_delcookie1">delete 1</button>
+<button class="cl_deletecookie2"> delete 2</button>
 
-
-
+<p>your cookies</p>
+<p id="id_cookies"></p>
     <script>
 
 
+const co_addbutton =document.getElementsByClassName("cl_addcookie")[0];
+const co_get1button =document.getElementsByClassName("cl_getcookie1")[0];
+const co_get2button =document.getElementsByClassName("cl_getcookie2")[0];
+const co_del1button=document.getElementsByClassName("cl_delcookie1")[0];
+const co_del2button = document.getElementsByClassName("cl_deletecookie2")[0];
+const co_para1=document.getElementById("id_cookies");
+
+function fu_add2(){
+
+let le_cookie1 = "key_1";
+let le_cookie2 = "key_2";
+let le_cookie1val = "value1";
+let le_cookie2val = "value2";
+let time_to_live = 60*60*24*7;
+
+document.cookie =`${le_cookie1}=${le_cookie1val}; max-age=${time_to_live}; Secure; Samesite=strict;`;
+document.cookie =`${le_cookie2}=${le_cookie2val}; max-age=${time_to_live}; Secure; Samesite=strict;`;
+   
+co_para1.innerText = document.cookie.split("; ");
+
+    console.log("log");
+}
+co_para1.innerText = document.cookie.split("; ");
+
+function fu_cl_getcookie1(){
+
+let ahhh = document.cookie.split("; ");
+
+console.log(ahhh[0]);
+co_para1.innerText=ahhh;
+
+}
+
+function fu_cl_getcookie2(){
+let ahhh3 = document.cookie.split("; ");
+
+console.log(ahhh3[1]);
+co_para1.innerText=ahhh3;
+}
+
+function fu_delcookie1(){
+
+document.cookie =`key_1=value1; max-age=1; Secure; Samesite=strict;`;
+let ahhh5 = document.cookie.split("; ");
+
+console.log(ahhh5[1]);
+co_para1.innerText=ahhh5;
+
+}
+function fu_delcookie2(){
+
+document.cookie =`key_2=value2; max-age=1; Secure; Samesite=strict;`;
+
+let ahhh7 = document.cookie.split("; ");
+
+console.log(ahhh7[1]);
+co_para1.innerText=ahhh7;
+}
 
 
 
-
-
-
-
+co_addbutton.addEventListener("click",fu_add2);
+co_get1button.addEventListener("click",fu_cl_getcookie1);
+co_get2button.addEventListener("click",fu_cl_getcookie2);
+co_del1button.addEventListener("click",fu_delcookie1);
+co_del2button.addEventListener("click",fu_delcookie2);
 
 
 

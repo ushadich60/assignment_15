@@ -8,21 +8,93 @@
 <body>
     <h6>this is local storage</h6>
     
-
+<button class="cl_button1">add</button>
+<button class="cl_button2">show local storage</button>
+<button class="cl_button3">delete key 1</button>
+<button class="cl_button4">delete key 2</button>
+<button class="cl_button5">Clear All</button>
 
 
 
     <script>
 
+console.log("log");
+
+const co_button1 = document.getElementsByClassName("cl_button1")[0];
+const co_button2 = document.getElementsByClassName("cl_button2")[0];
+const co_button3 = document.getElementsByClassName("cl_button3")[0];
+const co_button4 = document.getElementsByClassName("cl_button4")[0];
+const co_button5 = document.getElementsByClassName("cl_button5")[0];
+
+
+function fu_add2keys(){
+
+let le_a1=    localStorage.setItem("key1","value1");
+let le_a2=    localStorage.setItem("key2","value2");
+
+    console.log(localStorage.getItem("key1"));
+    console.log(localStorage.getItem("key2"));
+
+    
+}
 
 
 
+function fu_showkeys(){
+
+let le_a1=    localStorage.getItem("key1");
+let le_a2=    localStorage.getItem("key2");
+
+    console.log(localStorage.getItem("key1"));
+    console.log(localStorage.getItem("key2"));
+
+    
+}
+
+
+function fu_deletekeys1(){
+
+let le_a1=    localStorage.setItem("key1","");
+let le_a2=    localStorage.getItem("key2");
+
+    console.log(localStorage.getItem("key1"));
+    console.log(localStorage.getItem("key2"));
+
+    
+}
+
+
+function fu_deletekeys2(){
+
+let le_a1=    localStorage.getItem("key1");
+let le_a2=    localStorage.setItem("key2","");
+
+    console.log(localStorage.getItem("key1"));
+    console.log(localStorage.getItem("key2"));
+
+    
+}
+
+function fu_dclear(){
+
+localStorage.clear();
+
+let le_a1=    localStorage.getItem("key1");
+let le_a2=    localStorage.getItem("key2");
+
+    console.log(localStorage.getItem("key1"));
+    console.log(localStorage.getItem("key2"));
+
+    
+}
 
 
 
-
-
-
+co_button1.addEventListener("click",fu_add2keys);
+co_button2.addEventListener("click",fu_showkeys);
+co_button3.addEventListener("click",fu_deletekeys1);
+co_button4.addEventListener("click",fu_deletekeys2);
+co_button5.addEventListener("click",fu_dclear);
 
 
 
